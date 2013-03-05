@@ -42,7 +42,7 @@
 							<div class="RequiredMarker" style="display:inline-block">
 								<abbr class="noborder" title="Obrigatório" style="padding: 2px 0 0 0;">*</abbr>
 							</div>
-							<abbr class="noborder" title="Pregunta 0"></abbr> Select the language
+							<abbr class="noborder" title="Pregunta 0"></abbr> Select the language in which you will complete the experiment
 						</div>
 
 						<div class="qBody">

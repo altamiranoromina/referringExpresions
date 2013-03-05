@@ -54,7 +54,7 @@
 							<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
 						</div>
 
-						<abbr class="noborder" title="Pregunta 2">2</abbr>. Nacionality
+						<abbr class="noborder" title="Pregunta 2">2</abbr>. Nationality
 					</div>
 					<div class="qBody">
 						<div>
@@ -278,7 +278,7 @@
 							</div>
 
 							<div class="hlbl">
-								<label for="input_nation">Nacionality</label>
+								<label for="input_nation">Nationality</label>
 							</div>
 						</div>
 					</div>
@@ -307,7 +307,7 @@
 					<div class="RequiredMarker" style="display:inline-block">
 						<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
 					</div>
-					<abbr class="noborder" title="Pregunta 4">4</abbr>. Sex
+					<abbr class="noborder" title="Pregunta 4">4</abbr>. Gender
 				</div>
 
 				<div class="qBody">
@@ -342,12 +342,12 @@
 							<div class="RequiredMarker" style="display:inline-block">
 								<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
 							</div>
-							<abbr class="noborder" title="Pregunta 5">5</abbr>. Current study
+							<abbr class="noborder" title="Pregunta 5">5</abbr>. Maximal level of studies
 					</div>
 
 					<div class="qBody">
 						<span><input id="text_estudia" name="text_estudia" class="open" type="text" size="20" value="" /></span>
-						<div class="hlbl"><label for="text_estudia">Current study</label>
+						<div class="hlbl"><label for="text_estudia">Maximal level of studies</label>
 					</div>
 				</div>
 
@@ -361,7 +361,7 @@
 						<div class="RequiredMarker" style="display:inline-block">
 							<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
 						</div>
-						<abbr class="noborder" title="Pergunta 6">6</abbr>. I agree that the data entered in this form are used anonymously for research and distributed.
+						<abbr class="noborder" title="Pergunta 6">6</abbr>. I agree that the data entered in this form are used anonymously for research.
 					</div>
 
 					<div class="qBody">
@@ -373,7 +373,7 @@
 										<label for="input_accept" id="linput_accept" class="rb_off">
 											<img src="/i/t.gif" class="selImg" alt="" />
 											<span class="qLabel AnswerOptionText">
-												<span class="hlbl">I agree that the data entered in this form are used anonymously for research and distributed. &nbsp; 
+												<span class="hlbl">I agree that the data entered in this form are used anonymously for research. &nbsp; 
 												</span>Accept
 											</span>
 										</label>
@@ -430,13 +430,13 @@ function nes(e){e=(e)?e:event;var c=(e.which)?e.which:e.keyCode;return(c!=13);}v
 		mensaje='';
 
 		if (document.getElementById('text_identificacion').value == '') mensaje+="\t-Identification\n";
-		if (document.getElementById('input_nation').value == '') mensaje+="\t-Nacionality\n";
+		if (document.getElementById('input_nation').value == '') mensaje+="\t-Nationality\n";
 		if (document.getElementById('text_edad').value == '') mensaje+="\t-Age\n";
-		if ((document.getElementById('linput_masc')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_fem')).getAttribute("class").contains("rb_off"))  mensaje+="\t-Select sex\n";
+		if ((document.getElementById('linput_masc')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_fem')).getAttribute("class").contains("rb_off"))  mensaje+="\t-Select gender\n";
 
 
 
-		if (document.getElementById('text_estudia').value == '') mensaje+="\t-Current study\n";
+		if (document.getElementById('text_estudia').value == '') mensaje+="\t-Maximal level of studies\n";
 		if ((document.getElementById('linput_accept')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_reject')).getAttribute("class").contains("rb_off") ) mensaje+="\t-Select accept termins and conditions\n";
 		if (mensaje!=''){ 
 			alert("The following are required:\n"+mensaje);
