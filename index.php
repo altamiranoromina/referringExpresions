@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" class="Aqua">
-<head><title>Referring expressions</title>
+<head><title>RE</title>
 <link id="fav" href="/favicon1.ico" rel="shortcut icon"></link>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, user-scalable=yes" />
@@ -20,7 +20,7 @@
 	<div id="PageContentDiv">
 		<h1 class="sTitle sTitleCf">
 			<div style="text-align:left;">
-				<span class="notranslate">Referring expressions</span>
+				<span class="notranslate">Help us to colect a corpus of referring expressions!</span>
 			</div>
 		</h1>
 

@@ -112,9 +112,7 @@
 	$sexo = $_POST['input_sex'];
 	$nacionalidad = $_POST['input_nation'];
 	$idioma = $_POST['input_idioma'];
-	$que_estudia = $_POST['text_estudia'];
-	$identificacion = $_POST['text_identificacion'];
-	$sql = "insert into personas  (edad,sexo,idioma,nacionalidad,que_estudia,identificacion, fecha_hora_inicio) values ($edad,$sexo,'$idioma','$nacionalidad','$que_estudia','$identificacion',CURRENT_TIMESTAMP(2)) returning id_persona";
+	$sql = "insert into personas  (edad,sexo,idioma,nacionalidad, fecha_hora_inicio) values ($edad,$sexo,'$idioma','$nacionalidad',CURRENT_TIMESTAMP(2)) returning id_persona";
 	$resultado = pg_exec($db, $sql);
 	$res = pg_fetch_assoc($resultado);
 	$id_persona = $res['id_persona'];

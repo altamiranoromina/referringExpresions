@@ -21,34 +21,17 @@
 	<div id="PageContentDiv">
 		<h1 class="sTitle sTitleCf">
 			<div style="text-align:left;">
-				<span class="notranslate">Personal information and accept the conditions</span>
+				<span class="notranslate">Please, fill your personal information and accept the conditions</span>
 			</div>
 		</h1>
 
 		<div class="pgHdr">
 			<div id="q1" class="question" style="margin:0 0 0 0;width:auto">
-				<div class="qContent">
+				<!--<div class="qContent">-->
 					
 				<!--<input id="input_idioma" name="input_idioma" class="open" type="text" size="15" value=<?php //echo $_POST['input_idioma']; ?> />-->				
 
-					<div id="q2" class="question" style="margin:0 0 0 0;width:auto">
-						<div class="qContent">
-							<div class="qHeader">
-								<div class="RequiredMarker" style="display:inline-block">
-									<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
-								</div>
-								<abbr class="noborder" title="Pregunta 1">1</abbr>. Identification
-						</div>
-
-						<div class="qBody">
-							<span>
-								<input id="text_identificacion" name="text_identificacion" class="open" type="text" size="15" value="" />
-							</span>
-							<div class="hlbl">
-								<label for="text_identificacion">Identification</label>
-							</div>
-						</div>
-					</div>
+					
 					<div class="qHeader">
 						<div class="RequiredMarker" style="display:inline-block">
 							<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
@@ -334,27 +317,7 @@
 		</div>
 		<input type="hidden" name="input_idioma" value="English" />
 
-		<div id="q4" class="question" style="margin:0 0 0 0;width:auto">
-			
-				<div id="q2" class="question" style="margin:0 0 0 0;width:auto">
-					<div class="qContent">
-						<div class="qHeader">
-							<div class="RequiredMarker" style="display:inline-block">
-								<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
-							</div>
-							<abbr class="noborder" title="Pregunta 5">5</abbr>. Maximal level of studies
-					</div>
-
-					<div class="qBody">
-						<span><input id="text_estudia" name="text_estudia" class="open" type="text" size="20" value="" /></span>
-						<div class="hlbl"><label for="text_estudia">Maximal level of studies</label>
-					</div>
-				</div>
-
-
-
-		</div>
-
+		
 			<div id="q5" class="question" style="margin:0 0 0 0;width:auto">
 				<div class="qContent">
 					<div class="qHeader">
@@ -429,15 +392,15 @@ function nes(e){e=(e)?e:event;var c=(e.which)?e.which:e.keyCode;return(c!=13);}v
 	function validar_datos(){
 		mensaje='';
 
-		if (document.getElementById('text_identificacion').value == '') mensaje+="\t-Identification\n";
+		//if (document.getElementById('text_identificacion').value == '') mensaje+="\t-Identification\n";
 		if (document.getElementById('input_nation').value == '') mensaje+="\t-Nationality\n";
 		if (document.getElementById('text_edad').value == '') mensaje+="\t-Age\n";
 		if ((document.getElementById('linput_masc')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_fem')).getAttribute("class").contains("rb_off"))  mensaje+="\t-Select gender\n";
 
 
 
-		if (document.getElementById('text_estudia').value == '') mensaje+="\t-Maximal level of studies\n";
-		if ((document.getElementById('linput_accept')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_reject')).getAttribute("class").contains("rb_off") ) mensaje+="\t-Select accept termins and conditions\n";
+		//if (document.getElementById('text_estudia').value == '') mensaje+="\t-Current study\n";
+		if ((document.getElementById('linput_accept')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_reject')).getAttribute("class").contains("rb_off") ) mensaje+="\t-Accept termins and conditions\n";
 		if (mensaje!=''){ 
 			alert("The following are required:\n"+mensaje);
 		 	return false;

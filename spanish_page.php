@@ -31,24 +31,7 @@
 					
 				<!--<input id="input_idioma" name="input_idioma" class="open" type="text" size="15" value=<?php //echo $_POST['input_idioma']; ?> />-->				
 
-					<div id="q2" class="question" style="margin:0 0 0 0;width:auto">
-						<div class="qContent">
-							<div class="qHeader">
-								<div class="RequiredMarker" style="display:inline-block">
-									<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
-								</div>
-								<abbr class="noborder" title="Pregunta 1">1</abbr>. Identificaci&#243;n (DNI o matrícula)
-						</div>
-
-						<div class="qBody">
-							<span>
-								<input id="text_identificacion" name="text_identificacion" class="open" type="text" size="15" value="" />
-							</span>
-							<div class="hlbl">
-								<label for="text_identificacion">Identificaci&#243;n</label>
-							</div>
-						</div>
-					</div>
+					
 					<div class="qHeader">
 						<div class="RequiredMarker" style="display:inline-block">
 							<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
@@ -307,7 +290,7 @@
 					<div class="RequiredMarker" style="display:inline-block">
 						<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
 					</div>
-					<abbr class="noborder" title="Pregunta 4">4</abbr>. Sexo
+					<abbr class="noborder" title="Pregunta 4">4</abbr>. Género
 				</div>
 
 				<div class="qBody">
@@ -334,34 +317,14 @@
 		</div>
 		<input type="hidden" name="input_idioma" value="Spanish" />
 
-		<div id="q4" class="question" style="margin:0 0 0 0;width:auto">
-			
-				<div id="q2" class="question" style="margin:0 0 0 0;width:auto">
-					<div class="qContent">
-						<div class="qHeader">
-							<div class="RequiredMarker" style="display:inline-block">
-								<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
-							</div>
-							<abbr class="noborder" title="Pregunta 5">5</abbr>. Que estudia?
-					</div>
-
-					<div class="qBody">
-						<span><input id="text_estudia" name="text_estudia" class="open" type="text" size="20" value="" /></span>
-						<div class="hlbl"><label for="text_estudia">Que estudia</label>
-					</div>
-				</div>
-
-
-
-		</div>
-
+		
 			<div id="q5" class="question" style="margin:0 0 0 0;width:auto">
 				<div class="qContent">
 					<div class="qHeader">
 						<div class="RequiredMarker" style="display:inline-block">
 							<abbr class="noborder" title="Obligatorio" style="padding: 2px 0 0 0;">*</abbr>
 						</div>
-						<abbr class="noborder" title="Pergunta 6">6</abbr>. Acepto de que los datos ingresados en este cuestionario sean usados an&#243;nimamente para investigaci&#243;n y distribuidos.
+						<abbr class="noborder" title="Pergunta 6">6</abbr>. Acepto de que los datos ingresados en este cuestionario sean usados an&#243;nimamente para investigaci&#243;n.
 					</div>
 
 					<div class="qBody">
@@ -373,7 +336,7 @@
 										<label for="input_accept" id="linput_accept" class="rb_off">
 											<img src="/i/t.gif" class="selImg" alt="" />
 											<span class="qLabel AnswerOptionText">
-												<span class="hlbl">Acepto de que los datos ingresados en este cuestionario sean usados an&#243;nimamente para investigaci&#243;n y distribuidos. &nbsp; 
+												<span class="hlbl">Acepto de que los datos ingresados en este cuestionario sean usados an&#243;nimamente para investigaci&#243;n. &nbsp; 
 												</span>Acepto
 											</span>
 										</label>
@@ -429,15 +392,15 @@ function nes(e){e=(e)?e:event;var c=(e.which)?e.which:e.keyCode;return(c!=13);}v
 	function validar_datos(){
 		mensaje='';
 
-		if (document.getElementById('text_identificacion').value == '') mensaje+="\t-DNI\n";
+		//if (document.getElementById('text_identificacion').value == '') mensaje+="\t-Identification\n";
 		if (document.getElementById('input_nation').value == '') mensaje+="\t-Nacionalidad\n";
 		if (document.getElementById('text_edad').value == '') mensaje+="\t-Edad\n";
-		if ((document.getElementById('linput_masc')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_fem')).getAttribute("class").contains("rb_off"))  mensaje+="\t-Seleccionar sexo\n";
+		if ((document.getElementById('linput_masc')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_fem')).getAttribute("class").contains("rb_off"))  mensaje+="\t-Seleccione género\n";
 
 
 
-		if (document.getElementById('text_estudia').value == '') mensaje+="\t-Que studia\n";
-		if ((document.getElementById('linput_accept')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_reject')).getAttribute("class").contains("rb_off") ) mensaje+="\t-Seleccionar si acepta los términos y condiciones\n";
+		//if (document.getElementById('text_estudia').value == '') mensaje+="\t-Current study\n";
+		if ((document.getElementById('linput_accept')).getAttribute("class").contains("rb_off") && (document.getElementById('linput_reject')).getAttribute("class").contains("rb_off") ) mensaje+="\t-Acepte los términos y condiciones\n";
 		if (mensaje!=''){ 
 			alert("Los siguientes son obligatorios:\n"+mensaje);
 		 	return false;

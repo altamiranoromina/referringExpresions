@@ -4,9 +4,9 @@
 	$id_mapa = $_GET['id_mapa'];
 	$expresion_referencial = $_GET['expresion_referencial'];
 	$numero_mostrado = $_GET['numero_mostrado'];	
-	console.log($numero_mostrado);
+	//console.log($numero_mostrado);
 	$db = pg_connect("host=localhost dbname='corpus' user='postgres' password='*postgres-'") or die(pg_last_error());
-	$sql = "insert into expresiones_referenciales (id_persona,id_mapa,expresion_referencial) values ($id_persona,'$id_mapa','$expresion_referencial')";
+	$sql = "insert into expresiones_referenciales (id_persona,id_mapa,expresion_referencial,fecha_hora) values ($id_persona,'$id_mapa','$expresion_referencial',CURRENT_TIMESTAMP(2))";
 	$resultado = pg_exec($db,$sql);
 	
 	if ($numero_mostrado=='20')
