@@ -1,11 +1,11 @@
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd" />
 <html xmlns="http://www.w3.org/1999/xhtml" class="Aqua">
 <head><title>Referring expressions</title>
-<link id="fav" href="/favicon1.ico" rel="shortcut icon"></link>
+<link id="fav" href="/favicon1.ico" rel="shortcut icon" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="viewport" content="width=device-width, user-scalable=yes" />
-<meta http-equiv="Content-Language" content="sp" />
+<meta http-equiv="Content-Language" content="en" />
 
 <link rel="stylesheet" type="text/css" href="css/default_themes.css" media="all" />
 <link rel="stylesheet" type="text/css" href="css/s_iphone.css" media="only screen and (max-device-width: 480px)" />
@@ -14,14 +14,26 @@
 <script type="text/javascript" src="js/SurveyV12.js"></script>
 
 <script type="text/javascript">
+
 	var actual;
 	var numero_actual;
 	var arr;
 	var numero_mostrado;
 
 	function first() {
-		setup();
-		numero_mostrado = 0;
+		//setup();
+
+$con=mysqli_connect("127.0.0.1","root","*root-","corpus");
+
+// Check connection
+if (mysqli_connect_errno($con))
+  {
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
+
+mysqli_close($con);
+		alert("hola");
+	/*	numero_mostrado = 0;
 		actual = 0;
 		arr = [1,2,3,4,5];
 		var n = arr.length;
@@ -36,11 +48,13 @@
 		numero_actual = arr[actual];//lo que tiene el array en posicion 0
 		numero_mostrar=numero_actual;
 		document.getElementById("divImagen" + numero_mostrar).style.display = "inline";
-		document.getElementById("text_f" + numero_mostrar).focus();
+		document.getElementById("text_f" + numero_mostrar).focus();*/
 	}
 
 	function save_data(str) {
-		if (window.XMLHttpRequest)
+		alert("aqui");
+		console.log("saving data");
+/*		if (window.XMLHttpRequest)
 		{// code for IE7+, Firefox, Chrome, Opera, Safari
 			xmlhttp=new XMLHttpRequest();
 		}
@@ -58,12 +72,13 @@
 		}
 
 		xmlhttp.open("GET","save_data.php?"+str,true);
-		xmlhttp.send();
+		xmlhttp.send();*/
 	}
 
 	function next(ret, element, id_persona) {
 	
-		if(document.getElementById("text_f" + numero_mostrar).value!='' && ret)
+		alert("entra");
+		/*if(document.getElementById("text_f" + numero_mostrar).value!='' && ret)
 		{
 			numero_mostrado = numero_mostrado + 1; //count showed object 
 			console.log(id_persona+" - "+numero_mostrar);
@@ -88,7 +103,7 @@
 				document.getElementById("divImagen" + numero_mostrar).style.display = "inline";
 				document.getElementById("text_f" + numero_mostrar).focus();
 			}
-		}
+		}*/
 		return false;
 	}
 </script>
@@ -106,16 +121,29 @@
 		exit;
 	}	
 
-	$db = pg_connect("host=localhost dbname='corpus' user='postgres' password='*postgres-'") or die(pg_last_error());
-
 	$edad = $_POST['text_edad'];
 	$sexo = $_POST['input_sex'];
 	$nacionalidad = $_POST['input_nation'];
 	$idioma = $_POST['input_idioma'];
-	$sql = "insert into personas  (edad,sexo,idioma,nacionalidad, fecha_hora_inicio) values ($edad,$sexo,'$idioma','$nacionalidad',CURRENT_TIMESTAMP(2)) returning id_persona";
-	$resultado = pg_exec($db, $sql);
-	$res = pg_fetch_assoc($resultado);
-	$id_persona = $res['id_persona'];
+
+	$db = mysql_connect("127.0.0.1", "root", "*root-");
+	@mysql_select_db("corpus",$db) or die( "Unable to select database");
+	// Check connection
+	if (mysql_connect_errno($db))
+  	{
+  		//echo "<body>Failed to connect to MySQL: " . mysqli_connect_error() ."</body>";
+		alert("1");
+  	}
+	else
+	{
+		alert("2");
+		//echo "<body><pre>connecto MySQL</pre></body>";
+		$sql = mysql_query("insert into personas  (edad,sexo,idioma,nacionalidad, fecha_hora_inicio) values ($edad,$sexo,'$idioma','$nacionalidad',date('now'))", $db);
+
+		$id_persona = mysql_query("SELECT LAST_INSERT_ID()", $db);
+		console.log($id_persona);
+		//mysql_close($db);
+	}
 ?>
 
 <body id="BodyTag" class="notranslate" onload="first();">
@@ -710,7 +738,7 @@
 
 	function validar_datos()
 	{
-		mensaje = '';
+		/*mensaje = '';
 		mensaje_incorrectos = '';
 		mensaje_completo='';
 		//alert("entra"+(document.getElementById('divImagen'+1)).getAttribute("style").contains("inline"));
@@ -721,9 +749,9 @@
 			{
 				mensaje+="\t-Answer";
 			}
-		}
+		}*/
 		/* Agregando excepciones... mensajes incorrecciones - ejemplo */
-		if ((document.getElementById('divImagen1')).getAttribute("style").contains("inline") && (document.getElementById('text_f'+1).value).contains("yellow")) 
+		/*if ((document.getElementById('divImagen1')).getAttribute("style").contains("inline") && (document.getElementById('text_f'+1).value).contains("yellow")) 
 		{
 			
 			mensaje_incorrectos+="\t-Your answer should not conteins yellow\n";
@@ -742,9 +770,9 @@
 				return false;
 		}
 		else 
-		{
+		{*/
 			return true;
-		}
+		//}
 	}
 </script>
 
